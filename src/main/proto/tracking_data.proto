@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package com.example.grpc.tracking;
+
+message TrackingData {
+    string rideId = 1;
+    float lat = 2;
+    float long = 3;
+    int64 timestamp = 4;
+}
+
+service RideTrackingService {
+    rpc track(stream TrackingData) returns (google.protobuf.Empty);
+}
